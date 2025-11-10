@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles & Videos | NIRVAAN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #dbeafe, #ecfdf5);
+      color: #003c52;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #004d61;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.5rem;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      overflow-y: hidden;
+    }
+
+    .column {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 20px;
+      border-right: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .column:last-child {
+      border-right: none;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004d61;
+      border-bottom: 2px solid #004d61;
+      padding-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin: 10px;
+      padding: 12px 15px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    li:hover {
+      transform: scale(1.03);
+      background: #e0f7fa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      color: #004d61;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        flex-direction: column;
+      }
+      .column {
+        border-right: none;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    📰 Articles & 🎥 Videos | NIRVAAN
+  </header>
+
+  <div class="container">
+    <!-- Left Column: Articles -->
+    <div class="column" id="articles">
+      <h2>Recommended Articles</h2>
+      <ul id="articleList"></ul>
+    </div>
+
+    <!-- Right Column: Videos -->
+    <div class="column" id="videos">
+      <h2>Recommended Videos</h2>
+      <ul id="videoList"></ul>
+    </div>
+  </div>
+
+  <footer>
+    <a href="index.html">← Back to Home</a> | Explore more on mental wellness 🌿
+  </footer>
+
+  <script>
+    // Dummy data for 100 articles & videos
+    const articleList = document.getElementById("articleList");
+    const videoList = document.getElementById("videoList");
+
+    const articles = [
+      "10 Ways to Reduce Anxiety",
+      "Mindfulness for Beginners",
+      "Power of Positive Thinking",
+      "Daily Habits for Inner Peace",
+      "Balancing Academic Stress",
+      "Sleep and Mental Health",
+      "Coping with Loneliness",
+      "Overcoming Exam Pressure",
+      "Simple Yoga for Calm Mind",
+      "Handling Negative Thoughts"
+    ];
+
+    const videos = [
+      "https://www.youtube.com/watch?v=inpok4MKVLM", // Calm music
+      "https://www.youtube.com/watch?v=z6X5oEIg6Ak", // Meditation
+      "https://www.youtube.com/watch?v=86m4RC_ADEY", // Deep relaxation
+      "https://www.youtube.com/watch?v=MIr3RsUWrdo", // Mindful breathing
+      "https://www.youtube.com/watch?v=o-xrJGdDJag", // Study motivation
+      "https://www.youtube.com/watch?v=2OEL4P1Rz04", // Healing sound
+      "https://www.youtube.com/watch?v=DL3LRJz7HDc", // Gratitude practice
+      "https://www.youtube.com/watch?v=ZToicYcHIOU", // Guided meditation
+      "https://www.youtube.com/watch?v=6zGQSWib32E", // Focus music
+      "https://www.youtube.com/watch?v=mgmVOuLgFB0"  // Motivation
+    ];
+
+    // Generate 100 entries (looping through sample data)
+    for (let i = 0; i < 100; i++) {
+      const artTitle = articles[i % articles.length] + " (" + (i + 1) + ")";
+      const artLink = document.createElement("li");
+      artLink.innerHTML = `<a href="https://psychcentral.com/blog/${i}" target="_blank">${artTitle}</a>`;
+      articleList.appendChild(artLink);
+
+      const vidTitle = "Video: " + (i + 1);
+      const vidLink = document.createElement("li");
+      vidLink.innerHTML = `<a href="${videos[i % videos.length]}" target="_blank">${vidTitle}</a>`;
+      videoList.appendChild(vidLink);
+    }
+  </script>
+</body>
+</html>
