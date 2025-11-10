@@ -19,7 +19,21 @@
       through guided AI chat, self-care resources, and counseling support.
     </p>
   </section>
-
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn" id="toggleMode">🌙</button>
+    <button class="btn" id="loginBtn">Login / Register</button>
+  </div>   <!-- Login Modal -->
+  <div class="modal" id="loginModal" style="display:none;">
+    <div class="card">
+      <h2>Login / Register</h2>
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+      <label>Password:</label>
+      <input type="password" id="password" placeholder="Enter your password" />
+      <button class="btn" id="closeModal">Close</button>
+    </div>
+  </div>
   <section class="features">
     <div class="feature" onclick="openPage('calm_music.html')">🎵 Calm Music</div>
     <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">🧠 Stress Management</div>
@@ -95,6 +109,7 @@
 
 </body>
 </html>
+
 
 
 
