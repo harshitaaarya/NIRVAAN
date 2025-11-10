@@ -3,52 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calm Music - NIRVAAN</title>
+  <title>🎵 Calm Music | NIRVAAN</title>
   <style>
     body {
-      background: linear-gradient(to right, #c9ffbf, #ffafbd);
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      margin: 0;
+      padding: 0;
       text-align: center;
-      padding: 30px;
-    }
-
-    h1 {
       color: #004d61;
-      margin-bottom: 30px;
     }
 
-    .music-container {
+    header {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+
+    .music-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
     }
 
-    .music-box {
-      background: rgba(255,255,255,0.8);
+    .track {
+      background: rgba(255, 255, 255, 0.7);
       border-radius: 15px;
-      padding: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: all 0.3s ease;
     }
 
-    audio {
+    .track:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .track h3 {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .controls button {
+      background-color: #004d61;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      margin: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #006f88;
+    }
+
+    footer {
+      padding: 15px;
+      background: rgba(255,255,255,0.5);
+      position: fixed;
+      bottom: 0;
       width: 100%;
-      margin-top: 10px;
+      font-size: 0.9em;
+    }
+
+    a.back {
+      color: #004d61;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <h1>🎶 Calm Music for Relaxation</h1>
-  <div class="music-container">
-    <div class="music-box"><p>Peaceful Piano</p><audio controls><source src="music1.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Ocean Waves</p><audio controls><source src="music2.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Forest Ambience</p><audio controls><source src="music3.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Rain Sounds</p><audio controls><source src="music4.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Wind Chimes</p><audio controls><source src="music5.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Morning Birds</p><audio controls><source src="music6.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Night Calm</p><audio controls><source src="music7.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Mindful Breath</p><audio controls><source src="music8.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Zen Vibes</p><audio controls><source src="music9.mp3" type="audio/mp3"></audio></div>
-    <div class="music-box"><p>Relaxing Guitar</p><audio controls><source src="music10.mp3" type="audio/mp3"></audio></div>
+  <header>
+    <h1>🎵 Calm Music - Relax & Heal</h1>
+    <a href="index.html" class="back">← Back to Home</a>
+  </header>
+
+  <div class="music-grid">
+    <div class="track">
+      <h3>Ocean Waves</h3>
+      <audio id="audio1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio1')">Play</button>
+        <button onclick="pauseMusic('audio1')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Peaceful Piano</h3>
+      <audio id="audio2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio2')">Play</button>
+        <button onclick="pauseMusic('audio2')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Gentle Rain</h3>
+      <audio id="audio3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio3')">Play</button>
+        <button onclick="pauseMusic('audio3')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Forest Ambience</h3>
+      <audio id="audio4" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio4')">Play</button>
+        <button onclick="pauseMusic('audio4')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Morning Birds</h3>
+      <audio id="audio5" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio5')">Play</button>
+        <button onclick="pauseMusic('audio5')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Zen Flute</h3>
+      <audio id="audio6" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio6')">Play</button>
+        <button onclick="pauseMusic('audio6')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Soft Wind</h3>
+      <audio id="audio7" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio7')">Play</button>
+        <button onclick="pauseMusic('audio7')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Peaceful Strings</h3>
+      <audio id="audio8" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio8')">Play</button>
+        <button onclick="pauseMusic('audio8')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Night Sky</h3>
+      <audio id="audio9" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio9')">Play</button>
+        <button onclick="pauseMusic('audio9')">Pause</button>
+      </div>
+    </div>
+
+    <div class="track">
+      <h3>Dreamscape</h3>
+      <audio id="audio10" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"></audio>
+      <div class="controls">
+        <button onclick="playMusic('audio10')">Play</button>
+        <button onclick="pauseMusic('audio10')">Pause</button>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    <p>🌿 Take a deep breath and relax 🌿</p>
+  </footer>
+
+  <script>
+    let currentAudio = null;
+
+    function playMusic(id) {
+      if (currentAudio && currentAudio !== document.getElementById(id)) {
+        currentAudio.pause();
+      }
+      const audio = document.getElementById(id);
+      audio.play();
+      currentAudio = audio;
+    }
+
+    function pauseMusic(id) {
+      const audio = document.getElementById(id);
+      audio.pause();
+    }
+  </script>
 </body>
 </html>
