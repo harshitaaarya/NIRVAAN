@@ -5,9 +5,13 @@ body {
   color: #333;
   text-align: center;
 }
+.dark-mode {
+  background: #1c1c1c;
+  color: #e0e0e0;
+}
 
 header {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 header h1 {
@@ -19,6 +23,15 @@ header h1 {
 header p {
   font-size: 1.2em;
   color: #2f4858;
+}
+#darkToggle {
+  background: #4facfe;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .intro {
@@ -91,3 +104,4 @@ footer li {
   margin-bottom: 5px;
   color: #004d61;
 }
+
