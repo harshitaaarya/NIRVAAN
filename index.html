@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
-    <h1>NIRVAAN</h1>
+    <h1 id="nirvaan"></h1>
     <p>Your Mind Matters — Talk, Learn, Heal.</p>
   </header>
 
@@ -25,11 +26,12 @@
     <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">🎨 Find Hobbies</div>
     <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">💤 Sleep Hygiene</div>
     <div class="feature" onclick="openPage('articles_videos.html')">📚 Articles & Videos</div>
-    <div class="feature" onclick="openPage('mood_tracker.html')">📈 Mood Tracker</div>
+    <div class="feature mood" onclick="openPage('mood_tracker.html')">
+      😄😐😞<br><span class="line">Weekly | Monthly | Yearly</span>
+    </div>
     <div class="feature" onclick="openPage('quiz.html')">🧩 Quiz Section</div>
     <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">🧘‍♀️ Meditation</div>
-    <div class="feature" onclick="openPage('counselor_booking.html')">🤝 Counselor Booking</div>
-    <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/?gad_source=1','_blank')">🆘 How to Seek Help</div>
+    <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">🤝 How to Seek Help</div>
   </section>
 
   <footer>
@@ -43,9 +45,38 @@
   </footer>
 
   <script>
+    // Navigation
     function openPage(url) {
       window.location.href = url;
     }
+
+    // Typing effect for NIRVAAN
+    const text = "NIRVAAN";
+    const typingSpeed = 200;
+    const eraseSpeed = 100;
+    const delay = 1500;
+    const title = document.getElementById("nirvaan");
+    let i = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      title.textContent = text.substring(0, i);
+      if (!isDeleting && i < text.length) {
+        i++;
+        setTimeout(typeEffect, typingSpeed);
+      } else if (isDeleting && i > 0) {
+        i--;
+        setTimeout(typeEffect, eraseSpeed);
+      } else if (!isDeleting && i === text.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, delay);
+      } else {
+        isDeleting = false;
+        setTimeout(typeEffect, typingSpeed);
+      }
+    }
+    typeEffect();
   </script>
+
 </body>
 </html>
