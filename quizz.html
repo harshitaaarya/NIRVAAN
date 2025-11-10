@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧩 Mental Health Quiz | NIRVAAN</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #004d61;
+    }
+
+    .quiz-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .quiz-box {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .quiz-box:hover {
+      transform: scale(1.07);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .quiz-box h3 {
+      color: #005a70;
+    }
+
+    .quiz-box p {
+      font-size: 0.9em;
+      color: #444;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 10px;
+      color: #004d61;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.7);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9em;
+      color: #004d61;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Choose Your Mental Health Quiz</h1>
+    <a href="index.html" class="back">← Back to Home</a>
+  </header>
+
+  <div class="quiz-container">
+    <script>
+      const quizzes = [
+        { name: "Depression", desc: "Persistent sadness, low mood, loss of interest.", link: "https://screening.mhanational.org/screening-tools/depression/" },
+        { name: "Anxiety", desc: "Excessive worry, fear, and apprehension.", link: "https://screening.mhanational.org/screening-tools/anxiety/" },
+        { name: "Bipolar Disorder", desc: "Extreme mood swings (mania and depression).", link: "https://screening.mhanational.org/screening-tools/bipolar/" },
+        { name: "Schizophrenia", desc: "Hallucinations, delusions, disorganized thinking.", link: "https://www.idrlabs.com/schizophrenia-spectrum/test.php" },
+        { name: "OCD", desc: "Unwanted thoughts (obsessions), repetitive actions (compulsions).", link: "https://screening.mhanational.org/screening-tools/ocd/" },
+        { name: "PTSD", desc: "Trauma-related flashbacks, nightmares, severe anxiety.", link: "https://screening.mhanational.org/screening-tools/ptsd/" },
+        { name: "ADHD", desc: "Inattention, hyperactivity, impulsivity.", link: "https://screening.mhanational.org/screening-tools/adhd/" },
+        { name: "Eating Disorders", desc: "Abnormal eating habits, body weight obsession.", link: "https://screening.mhanational.org/screening-tools/eating-disorder/" },
+        { name: "Personality Disorders", desc: "Inflexible, unhealthy behavior patterns.", link: "https://www.idrlabs.com/personality-disorder/test.php" },
+        { name: "Phobias", desc: "Intense, irrational fear of specific things or situations.", link: "https://psychcentral.com/quizzes/fear-test" },
+        { name: "Autism Spectrum Disorder", desc: "Social communication difficulty, repetitive behaviors.", link: "https://screening.mhanational.org/screening-tools/autism/" },
+        { name: "Substance Use Disorders", desc: "Problems from persistent alcohol/drug use.", link: "https://screening.mhanational.org/screening-tools/substance-use/" }
+      ];
+
+      quizzes.forEach((quiz, index) => {
+        document.write(`
+          <div class="quiz-box" onclick="window.open('${quiz.link}', '_blank')">
+            <h3>${index + 1}. ${quiz.name}</h3>
+            <p>${quiz.desc}</p>
+            <p>🧩 Click to take the quiz</p>
+          </div>
+        `);
+      });
+    </script>
+  </div>
+
+  <footer>🌸 Choose a quiz to explore your mental wellness 🌸</footer>
+</body>
+</html>
