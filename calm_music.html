@@ -3,202 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎵 Calm Music | NIRVAAN</title>
+  <title>🌿 Calm Music | NIRVAAN</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #004d61;
+      color: #003c52;
     }
 
     header {
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-      font-size: 2em;
       margin: 0;
+      font-size: 2em;
     }
 
-    .music-grid {
+    a.back {
+      display: inline-block;
+      margin-top: 10px;
+      color: #004d61;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .music-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      gap: 20px;
       padding: 40px;
     }
 
-    .track {
+    .music-box {
       background: rgba(255, 255, 255, 0.7);
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
       transition: all 0.3s ease;
-    }
-
-    .track:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    }
-
-    .track h3 {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-
-    .controls button {
-      background-color: #004d61;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      margin: 5px;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
-    .controls button:hover {
-      background-color: #006f88;
+    .music-box:hover {
+      transform: scale(1.07);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-box h3 {
+      margin-bottom: 10px;
+      color: #004d61;
     }
 
     footer {
       padding: 15px;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255, 255, 255, 0.6);
       position: fixed;
       bottom: 0;
       width: 100%;
       font-size: 0.9em;
     }
-
-    a.back {
-      color: #004d61;
-      text-decoration: none;
-      font-weight: 600;
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>🎵 Calm Music - Relax & Heal</h1>
+    <h1>🎵 Calm & Relaxing Music</h1>
     <a href="index.html" class="back">← Back to Home</a>
   </header>
 
-  <div class="music-grid">
-    <div class="track">
-      <h3>Ocean Waves</h3>
-      <audio id="audio1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio1')">Play</button>
-        <button onclick="pauseMusic('audio1')">Pause</button>
-      </div>
-    </div>
+  <div class="music-container">
+    <script>
+      const musicList = [
+        { name: "Ocean Waves Meditation", link: "https://www.youtube.com/watch?v=V1Pl8CzNzCw" },
+        { name: "Relaxing Piano Music", link: "https://www.youtube.com/watch?v=lFcSrYw-ARY" },
+        { name: "Rain Sounds for Sleep", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Morning Nature Sounds", link: "https://www.youtube.com/watch?v=odEIE5lVXi4" },
+        { name: "Deep Sleep Music", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Peaceful Flute", link: "https://www.youtube.com/watch?v=a0KQwNwB8k8" },
+        { name: "Forest Stream Ambience", link: "https://www.youtube.com/watch?v=hHW1oY26kxQ" },
+        { name: "Gentle Guitar", link: "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { name: "Healing Tibetan Bowls", link: "https://www.youtube.com/watch?v=QSQwHnN1gXo" },
+        { name: "Zen Meditation", link: "https://www.youtube.com/watch?v=8MY3C0C5yWc" },
+        { name: "White Noise", link: "https://www.youtube.com/watch?v=HnKG8alr1Z8" },
+        { name: "Peaceful Harp", link: "https://www.youtube.com/watch?v=efYQMcYkK1E" },
+        { name: "Mindful Breathing", link: "https://www.youtube.com/watch?v=inpok4MKVLM" },
+        { name: "River Flow Sounds", link: "https://www.youtube.com/watch?v=Scq3R8q7ITg" },
+        { name: "Soft Rain on Window", link: "https://www.youtube.com/watch?v=eKFTSSKCzWA" },
+        { name: "Ambient Chill Mix", link: "https://www.youtube.com/watch?v=5qap5aO4i9A" },
+        { name: "Dreamy Sky Music", link: "https://www.youtube.com/watch?v=ev8qxt9KxwI" },
+        { name: "Candlelight Relaxation", link: "https://www.youtube.com/watch?v=yb4VvCk2BqA" },
+        { name: "Lo-fi Calm Beats", link: "https://www.youtube.com/watch?v=jfKfPfyJRdk" },
+        { name: "Soft Wind Ambience", link: "https://www.youtube.com/watch?v=8myYyMg1fFE" },
+        { name: "Misty Forest", link: "https://www.youtube.com/watch?v=l3-V6LK1u38" },
+        { name: "Meditation Bells", link: "https://www.youtube.com/watch?v=95ZlFhrvYlA" },
+        { name: "Healing Mind Waves", link: "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { name: "Calm Sea", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Peaceful Mind", link: "https://www.youtube.com/watch?v=-FlxM_0S2lA" },
+        { name: "Underwater Ambience", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Starry Night", link: "https://www.youtube.com/watch?v=ev8qxt9KxwI" },
+        { name: "Mind Relaxation Waves", link: "https://www.youtube.com/watch?v=Wl959QnD3lM" },
+        { name: "Yoga Calm Music", link: "https://www.youtube.com/watch?v=PRQmzY-9xA0" },
+        { name: "Heavenly Choir", link: "https://www.youtube.com/watch?v=j8cADX87-2g" },
+        { name: "Peaceful River", link: "https://www.youtube.com/watch?v=96trfTTjx1k" },
+        { name: "Soft Ocean Breeze", link: "https://www.youtube.com/watch?v=J6Pj2rt3rjY" },
+        { name: "Relax in Nature", link: "https://www.youtube.com/watch?v=eKFTSSKCzWA" },
+        { name: "Mind Calm Tones", link: "https://www.youtube.com/watch?v=DWcJFNfaw9c" },
+        { name: "Gentle Piano Rain", link: "https://www.youtube.com/watch?v=qYNxg1P_YWc" },
+        { name: "Flute and Stream", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Night Forest", link: "https://www.youtube.com/watch?v=R1mXJrP4P0w" },
+        { name: "Chakra Healing", link: "https://www.youtube.com/watch?v=8MY3C0C5yWc" },
+        { name: "Spa Relaxation", link: "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { name: "Calm Wind Chimes", link: "https://www.youtube.com/watch?v=4Tr0otuiQuU" },
+        { name: "Nature Meditation Mix", link: "https://www.youtube.com/watch?v=EX3MPBPhInA" },
+        { name: "Soft Guitar Rain", link: "https://www.youtube.com/watch?v=HnKG8alr1Z8" },
+        { name: "Serene Journey", link: "https://www.youtube.com/watch?v=hHW1oY26kxQ" },
+        { name: "Peaceful Dreams", link: "https://www.youtube.com/watch?v=odEIE5lVXi4" },
+        { name: "Relaxing Flute & Waves", link: "https://www.youtube.com/watch?v=QSQwHnN1gXo" },
+        { name: "Tranquil Mind", link: "https://www.youtube.com/watch?v=PRQmzY-9xA0" },
+        { name: "Soothing River", link: "https://www.youtube.com/watch?v=1ZYbU82GVz4" },
+        { name: "Harmony & Balance", link: "https://www.youtube.com/watch?v=2OEL4P1Rz04" },
+        { name: "Sunset Calm", link: "https://www.youtube.com/watch?v=jfKfPfyJRdk" },
+        { name: "Gentle Ocean Night", link: "https://www.youtube.com/watch?v=5qap5aO4i9A" },
+        { name: "Zen Peace Music", link: "https://www.youtube.com/watch?v=8MY3C0C5yWc" }
+      ];
 
-    <div class="track">
-      <h3>Peaceful Piano</h3>
-      <audio id="audio2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio2')">Play</button>
-        <button onclick="pauseMusic('audio2')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Gentle Rain</h3>
-      <audio id="audio3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio3')">Play</button>
-        <button onclick="pauseMusic('audio3')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Forest Ambience</h3>
-      <audio id="audio4" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio4')">Play</button>
-        <button onclick="pauseMusic('audio4')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Morning Birds</h3>
-      <audio id="audio5" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio5')">Play</button>
-        <button onclick="pauseMusic('audio5')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Zen Flute</h3>
-      <audio id="audio6" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio6')">Play</button>
-        <button onclick="pauseMusic('audio6')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Soft Wind</h3>
-      <audio id="audio7" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio7')">Play</button>
-        <button onclick="pauseMusic('audio7')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Peaceful Strings</h3>
-      <audio id="audio8" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio8')">Play</button>
-        <button onclick="pauseMusic('audio8')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Night Sky</h3>
-      <audio id="audio9" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio9')">Play</button>
-        <button onclick="pauseMusic('audio9')">Pause</button>
-      </div>
-    </div>
-
-    <div class="track">
-      <h3>Dreamscape</h3>
-      <audio id="audio10" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"></audio>
-      <div class="controls">
-        <button onclick="playMusic('audio10')">Play</button>
-        <button onclick="pauseMusic('audio10')">Pause</button>
-      </div>
-    </div>
+      musicList.forEach((music, index) => {
+        document.write(`
+          <div class="music-box" onclick="window.open('${music.link}', '_blank')">
+            <h3>${index + 1}. ${music.name}</h3>
+            <p>🎧 Click to listen on YouTube</p>
+          </div>
+        `);
+      });
+    </script>
   </div>
 
-  <footer>
-    <p>🌿 Take a deep breath and relax 🌿</p>
-  </footer>
-
-  <script>
-    let currentAudio = null;
-
-    function playMusic(id) {
-      if (currentAudio && currentAudio !== document.getElementById(id)) {
-        currentAudio.pause();
-      }
-      const audio = document.getElementById(id);
-      audio.play();
-      currentAudio = audio;
-    }
-
-    function pauseMusic(id) {
-      const audio = document.getElementById(id);
-      audio.pause();
-    }
-  </script>
+  <footer>🌼 Click any music box to open its YouTube relaxing track 🌼</footer>
 </body>
 </html>
