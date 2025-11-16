@@ -8,48 +8,52 @@
 </head>
 
 <body>
-  <div class="box">
-    <h2>Create Account</h2>
 
-    <div class="input-group">
-      <input type="text" id="fname" placeholder="First Name" required>
-      <input type="text" id="lname" placeholder="Last Name" required>
-    </div>
+<div class="box">
+  <h2>Create Account</h2>
 
-    <input type="date" id="dob" required>
-    <input type="text" id="paddress" placeholder="Permanent Address" required>
-    <input type="text" id="caddress" placeholder="Corresponding Address" required>
+  <input type="text" id="fname" placeholder="First Name">
+  <input type="text" id="lname" placeholder="Last Name">
 
-    <label class="upload-label">Upload ID Proof</label>
-    <input type="file" id="idproof" accept="image/*">
-    <img id="preview" style="width:120px; margin-top:10px; display:none; border-radius:8px;">
+  <label>Date of Birth</label>
+  <input type="date" id="dob">
 
-    <input type="text" id="phone" placeholder="Phone Number" required>
-    <input type="email" id="email" placeholder="Email" required>
+  <textarea id="paddress" placeholder="Permanent Address"></textarea>
+  <textarea id="caddress" placeholder="Correspondence Address"></textarea>
 
-    <input type="text" id="father" placeholder="Father's Name" required>
-    <input type="text" id="mother" placeholder="Mother's Name" required>
+  <label>Upload ID Proof</label>
+  <input type="file" id="idProof" accept="image/*">
 
-    <select id="gender">
-      <option value="">Select Gender</option>
-      <option>Female</option>
-      <option>Male</option>
-      <option>Other</option>
-    </select>
+  <img id="preview" style="display:none;width:120px;margin-top:10px;border-radius:10px;">
 
-    <input type="password" id="password" placeholder="Create Password" oninput="checkStrength()" required>
-    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+  <input type="text" id="phone" placeholder="Phone Number">
+  <input type="email" id="email" placeholder="Email">
 
-    <p id="strengthText"></p>
+  <input type="text" id="mother" placeholder="Mother's Name">
+  <input type="text" id="father" placeholder="Father's Name">
 
-    <label><input type="checkbox" onclick="togglePass()"> Show Password</label>
+  <select id="gender">
+    <option value="">Gender</option>
+    <option>Female</option>
+    <option>Male</option>
+    <option>Other</option>
+  </select>
 
-    <button class="btn" onclick="registerUser()">Register</button>
+  <input type="password" id="password" placeholder="Create Password">
+  <div id="strength"></div>
 
-    <p class="link">Already have account? <a href="login.html">Login</a></p>
+  <input type="password" id="cpassword" placeholder="Confirm Password">
+
+  <button id="otpBtn" class="btn">Send OTP</button>
+
+  <div id="otpBox" style="display:none;">
+    <input type="text" id="otpInput" placeholder="Enter OTP">
+    <button class="btn" id="verifyOtpBtn">Verify OTP</button>
   </div>
 
-  <script src="auth.js"></script>
+  <p class="link">Already Registered? <a href="login.html">Login</a></p>
+</div>
+
+<script src="auth.js"></script>
 </body>
 </html>
-
