@@ -6,6 +6,15 @@
   <title>NIRVAAN - Digital Psychological Intervention</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  let user = JSON.parse(localStorage.getItem("nirvaanUser"));
+
+  if (user) {
+    document.getElementById("userName").innerText = user.fname + " " + user.lname;
+    document.getElementById("userEmail").innerText = user.email;
+    document.getElementById("userPhone").innerText = user.phone;
+  }
+</script>
 
 <body>
 
@@ -121,4 +130,5 @@
 
 </body>
 </html>
+
 
