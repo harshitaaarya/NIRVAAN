@@ -11,6 +11,27 @@ body {
   background: #1c1c1c;
   color: #e0e0e0;
 }
+#nirvaan {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5a62ff;
+  text-align: center;
+  letter-spacing: 2px;
+  border-right: 3px solid #5a62ff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 2.5s steps(10) forwards, blink 0.75s step-end infinite alternate;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 12ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
 header {
   margin-top: 60px;
@@ -172,6 +193,7 @@ footer ul {
 .logoutBtn:hover {
   background: #d93636;
 }
+
 
 
 
