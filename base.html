@@ -1,20 +1,26 @@
-<!doctype html>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NIRVAAN</title>
-<link rel="stylesheet" href="{% static 'accounts/styles.css' %}">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - NIRVAAN</title>
+  <link rel="stylesheet" href="auth.css">
 </head>
+
 <body>
-<header>
-<h1 id="nirvaan">NIRVAAN</h1>
-<p>Your Mind Matters — Talk, Learn, Heal.</p>
-</header>
-<main>
-{% block content %}{% endblock %}
-</main>
+
+  <div class="box">
+    <h2>Login</h2>
+
+    <input type="email" id="loginEmail" placeholder="Enter Email" required>
+    <input type="password" id="loginPass" placeholder="Enter Password" required>
+
+    <button class="btn" onclick="loginUser()">Login</button>
+
+    <p class="link">New user? <a href="register.html">Create Account</a></p>
+  </div>
+
+  <script src="auth.js"></script>
+
 </body>
 </html>
-```
-
-
----
