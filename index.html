@@ -9,56 +9,61 @@
 
 <body>
 
-  <header>
-    <div class="user-controls">
+  <!-- TOP RIGHT USER CONTROLS -->
+  <div class="user-controls">
+
     <span id="helloUser" class="helloUser"></span>
 
     <button id="loginBtn" class="btn" onclick="window.location.href='login.html'">
-        Login
+      Login
     </button>
 
-
-    <button id="logoutBtn" class="btn logoutBtn" onclick="logout()" style="display:none;">
-        Logout
+    <button id="logoutBtn" class="logoutBtn" onclick="logout()" style="display:none;">
+      Logout
     </button>
-</div>
 
+  </div>
+
+  <!-- DARK MODE BUTTON -->
+  <button id="toggleMode" class="btn" style="position:absolute; left:20px; top:20px;">
+    🌙
+  </button>
+
+  <!-- HEADER -->
+  <header>
     <h1 id="nirvaan"></h1>
     <p>Your Mind Matters — Talk, Learn, Heal.</p>
   </header>
 
+  <!-- INTRO -->
   <section class="intro">
     <p>
       NIRVAAN helps college students manage stress, anxiety, and emotional challenges
-      through guided AI chat, self-care resources, and counseling support.
+      through guided AI chat, self-care tools, and counseling support.
     </p>
   </section>
-<button class="logoutBtn" onclick="logout()">Logout</button>
 
-  <!-- Controls -->
-
-
-  <!-- Bot + People -->
- 
-      
-  <!-- Features -->
+  <!-- FEATURES -->
   <section class="features">
 
-    <div class="feature" onclick="openPage('calm_music.html')">🎵 Calm Music</div>
+    <div class="feature" onclick="openPage('calm_music.html')">
+      🎵 Calm Music
+    </div>
 
     <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">
-        🧠 Stress Management
+      🧠 Stress Management
     </div>
+
     <div class="feature connectBox" onclick="openPage('chatbot.html')">
-          🤖 Connect With Bot
-      </div>
+      🤖 Connect With Bot
+    </div>
 
     <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">
-        🎨 Find Hobbies
+      🎨 Find Hobbies
     </div>
 
     <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">
-        💤 Sleep Hygiene
+      💤 Sleep Hygiene
     </div>
 
     <a href="resources.html" class="feature">📚 Articles & 🎥 Videos</a>
@@ -68,20 +73,20 @@
     <a href="quiz.html" class="feature">🧠 Quiz Section</a>
 
     <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">
-        🧘‍♀ Meditation
+      🧘‍♀ Meditation
     </div>
 
     <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">
-        🤝 How to Seek Help
+      🤝 How to Seek Help
     </div>
-          <div class="feature connectBox" onclick="openPage('community.html')">
-          👥 Connect With People
-      </div>
-  </section>
+
+    <div class="feature connectBox" onclick="openPage('community.html')">
+      👥 Connect With People
+    </div>
 
   </section>
 
-  <!-- Journal -->
+  <!-- JOURNAL -->
   <section class="container reveal">
     <h2>📝 Personal Journal</h2>
 
@@ -95,6 +100,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>Contact Us:</p>
     <ul>
@@ -110,6 +116,3 @@
 
 </body>
 </html>
-
-
-
