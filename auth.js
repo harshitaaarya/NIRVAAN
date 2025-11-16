@@ -1,35 +1,77 @@
-// ---------- SHOW/HIDE PASSWORD ----------
-function togglePass() {
-  let pass = document.getElementById("password");
-  let cpass = document.getElementById("confirmPassword");
-  pass.type = pass.type === "password" ? "text" : "password";
-  cpass.type = cpass.type === "password" ? "text" : "password";
+// =========================
+// ID PROOF PREVIEW
+// =========================
+document.addEventListener("change", (e) => {
+  if (e.target.id === "idProof") {
+    const file = e.target.files[0];
+    const preview = document.getElementById("preview");
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      preview.src = reader.result;
+      preview.style.display = "block";
+    };
+    if (file) reader.readAsDataURL(file);
+  }
+});
+
+// =========================
+// PASSWORD STRENGTH CHECK
+// =========================
+let strengthText = document.getElementById("strength");
+let passwordField = document.getElementById("password");
+
+if (passwordField) {
+  passwordField.addEventListener("input", () => {
+    let val = passwordField.value;
+    let strength = "";
+
+    if (val.length < 4) strength = "Weak ❌";
+    else if (val.length < 7) strength = "Medium ⚠️";
+    else strength = "Strong ✅";
+
+    strengthText.innerText = "Password Strength: " + strength;
+  });
 }
 
-function toggleLoginPass() {
-  let pass = document.getElementById("loginPass");
-  pass.type = pass.type === "password" ? "text" : "password";
+// =========================
+// OTP GENERATION
+// =========================
+let generatedOTP = "";
+
+const otpBtn = document.getElementById("otpBtn");
+if (otpBtn) {
+  otpBtn.onclick = () => {
+    generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+
+    document.getElementById("otpBox").style.display = "block";
+    alert("OTP Sent: " + generatedOTP); // replace later with real SMS/Email
+  };
 }
 
-// ---------- PASSWORD STRENGTH ----------
-function checkStrength() {
-  let pass = document.getElementById("password").value;
-  let strength = document.getElementById("strengthText");
+// =========================
+// OTP Verification + Save Data
+// =========================
+const verifyOtpBtn = document.getElementById("verifyOtpBtn");
+if (verifyOtpBtn) {
+  verifyOtpBtn.onclick = () => {
+    let otpInput = document.getElementById("otpInput").value;
 
-  if (pass.length < 4) strength.innerHTML = "Weak 🔴";
-  else if (pass.length < 8) strength.innerHTML = "Medium 🟡";
-  else strength.innerHTML = "Strong 🟢";
+    if (otpInput !== generatedOTP) {
+      alert("Incorrect OTP ❌");
+      return;
+    }
+
+    alert("OTP Verified! 🎉 Account Created!");
+
+    saveUser();
+  };
 }
 
-// ---------- ID PROOF PREVIEW ----------
-document.getElementById("idproof").onchange = function () {
-  const img = document.getElementById("preview");
-  img.src = URL.createObjectURL(this.files[0]);
-  img.style.display = "block";
-};
-
-// ---------- REGISTER USER ----------
-function registerUser() {
+// =========================
+// SAVE USER DATA TO LOCAL STORAGE
+// =========================
+function saveUser() {
   let user = {
     fname: document.getElementById("fname").value,
     lname: document.getElementById("lname").value,
@@ -38,43 +80,37 @@ function registerUser() {
     caddress: document.getElementById("caddress").value,
     phone: document.getElementById("phone").value,
     email: document.getElementById("email").value,
-    father: document.getElementById("father").value,
     mother: document.getElementById("mother").value,
+    father: document.getElementById("father").value,
     gender: document.getElementById("gender").value,
     password: document.getElementById("password").value,
-    idProof: document.getElementById("idproof").value
   };
 
-  if (user.password !== document.getElementById("confirmPassword").value) {
-    alert("Passwords do not match!");
-    return;
-  }
-
-  // SAVE to LocalStorage
-  localStorage.setItem(user.email, JSON.stringify(user));
-  localStorage.setItem(user.phone, JSON.stringify(user));
-
-  alert("Registration successful!");
+  localStorage.setItem("nirvaanUser", JSON.stringify(user));
   window.location.href = "login.html";
 }
 
-// ---------- LOGIN USER ----------
+// =========================
+// LOGIN SYSTEM
+// =========================
 function loginUser() {
-  let input = document.getElementById("loginInput").value;
-  let pass = document.getElementById("loginPass").value;
+  let loginUser = document.getElementById("loginUser").value;
+  let loginPass = document.getElementById("loginPass").value;
 
-  let user = JSON.parse(localStorage.getItem(input));
+  let savedUser = JSON.parse(localStorage.getItem("nirvaanUser"));
 
-  if (!user) {
-    alert("User Not Found!");
+  if (!savedUser) {
+    alert("No account found!");
     return;
   }
 
-  if (user.password !== pass) {
-    alert("Wrong Password!");
-    return;
+  if (
+    (loginUser === savedUser.email || loginUser === savedUser.phone) &&
+    loginPass === savedUser.password
+  ) {
+    alert("Login Successful 🎉");
+    window.location.href = "index.html"; // your NIRVAAN homepage
+  } else {
+    alert("Incorrect Login Details ❌");
   }
-
-  alert("Login Successful!");
-  window.location.href = "index.html"; // NIRVAAN Homepage
 }
