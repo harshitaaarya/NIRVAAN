@@ -43,3 +43,35 @@ document.getElementById("saveJournal").addEventListener("click", () => {
 // Load Journal Back
 document.getElementById("journalText").value =
   localStorage.getItem("nirvaan_journal") || "";
+// ---------------- USER LOGIN STATUS CHECK ---------------- //
+
+function checkLoginStatus() {
+  const user = JSON.parse(localStorage.getItem("nirvaanUser"));
+
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const helloUser = document.getElementById("helloUser");
+
+  if (!user) {
+    if (loginBtn) loginBtn.style.display = "inline-block";
+    if (logoutBtn) logoutBtn.style.display = "none";
+    if (helloUser) helloUser.style.display = "none";
+  } else {
+    if (loginBtn) loginBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "inline-block";
+    if (helloUser) {
+      helloUser.style.display = "inline-block";
+      helloUser.innerText = `Hello, ${user.firstName} 👋`;
+    }
+  }
+}
+
+function logout() {
+  localStorage.removeItem("nirvaanUser");
+  alert("Logged out successfully!");
+  window.location.reload();
+}
+
+// Run on page load
+checkLoginStatus();
+
