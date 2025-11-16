@@ -26,10 +26,10 @@ header {
 }
 
 #nirvaan {
-  font-size: 60px;         /* bigger */
+  font-size: 100px;         /* bigger */
   font-weight: bold;
   color: #5a62ff;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   border-right: 4px solid #5a62ff;
   white-space: nowrap;
   overflow: hidden;
@@ -47,7 +47,7 @@ header {
 }
 
 header p {
-  font-size: 1.5em;
+  font-size: 1.8em;
   margin-top: 15px;
   color: #004d61;
   font-weight: 500;
@@ -173,3 +173,4 @@ footer ul {
   font-size: 1.1em;
   color: #004d61;
 }
+
