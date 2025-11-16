@@ -1,13 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - NIRVAAN</title>
-  <link rel="stylesheet" href="auth.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      color: #fff;
+    }
+
+    .welcome-box {
+      position: absolute;
+      top: 30px;
+      text-align: center;
+      animation: fadeDown 1.5s ease;
+    }
+
+    .welcome-box h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #ffddaa;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .welcome-box p {
+      margin-top: 5px;
+      font-size: 16px;
+      opacity: 0.9;
+      color: #ffe7c6;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .box {
+      width: 420px;
+      background: rgba(255,255,255,0.13);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      overflow-y: auto;
+      max-height: 85vh;
+      animation: fadeUp 1.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #ffe7c6;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      outline: none;
+    }
+
+    textarea { height: 60px; }
+
+    label {
+      font-size: 14px;
+      margin-top: 10px;
+      display: block;
+      color: #ffd8ae;
+    }
+
+    .btn {
+      width: 100%;
+      background: #ffbd59;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      color: #000;
+    }
+
+    .btn:hover { background: #ffcb7f; }
+
+    #preview {
+      display: none;
+      width: 120px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 2px solid #ffbd59;
+    }
+
+    .link{
+      text-align: center;
+      margin-top: 12px;
+      color: #ffe7c6;
+    }
+
+    .link a{
+      color: #ffbd59;
+      font-weight: bold;
+    }
+
+    #strength{
+      font-size: 14px;
+      margin-top: -3px;
+      color: #ffd8ae;
+      text-align: right;
+    }
+  </style>
 </head>
 
 <body>
+
+<div class="welcome-box">
+  <h1>Welcome to NIRVAAN</h1>
+  <p>One small step toward better mental health 💛</p>
+</div>
 
 <div class="box">
   <h2>Create Account</h2>
@@ -23,8 +158,7 @@
 
   <label>Upload ID Proof</label>
   <input type="file" id="idProof" accept="image/*">
-
-  <img id="preview" style="display:none;width:120px;margin-top:10px;border-radius:10px;">
+  <img id="preview">
 
   <input type="text" id="phone" placeholder="Phone Number">
   <input type="email" id="email" placeholder="Email">
@@ -54,6 +188,5 @@
   <p class="link">Already Registered? <a href="login.html">Login</a></p>
 </div>
 
-<script src="auth.js"></script>
 </body>
 </html>
