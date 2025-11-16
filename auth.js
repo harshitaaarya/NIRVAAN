@@ -45,7 +45,7 @@ if (otpBtn) {
     generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
 
     document.getElementById("otpBox").style.display = "block";
-    alert("OTP Sent: " + generatedOTP); // replace later with real SMS/Email
+    alert("OTP Sent: " + generatedOTP);
   };
 }
 
@@ -63,7 +63,6 @@ if (verifyOtpBtn) {
     }
 
     alert("OTP Verified! 🎉 Account Created!");
-
     saveUser();
   };
 }
@@ -94,7 +93,7 @@ function saveUser() {
 // LOGIN SYSTEM
 // =========================
 function loginUser() {
-  let loginUser = document.getElementById("loginUser").value;
+  let loginUser = document.getElementById("loginInput").value; // FIXED ID
   let loginPass = document.getElementById("loginPass").value;
 
   let savedUser = JSON.parse(localStorage.getItem("nirvaanUser"));
@@ -109,19 +108,19 @@ function loginUser() {
     loginPass === savedUser.password
   ) {
     alert("Login Successful 🎉");
-    window.location.href = "index.html"; // your NIRVAAN homepage
+    window.location.href = "index.html";
   } else {
     alert("Incorrect Login Details ❌");
   }
 }
+
+// =========================
+// LOGOUT
+// =========================
 function logout() {
-  localStorage.removeItem("nirvaanUser"); // remove user data
+  localStorage.removeItem("nirvaanUser");
   alert("Logged out successfully 🔒");
-  window.location.href = "login.html"; // redirect to login page
+  window.location.href = "login.html";
 }
-localStorage.setItem(
-  "nirvaanUser",
-  JSON.stringify({ firstName: firstName, email: email })
-);
 
-
+// ❗ REMOVED THE WRONG LINE THAT WAS BREAKING EVERYTHING
