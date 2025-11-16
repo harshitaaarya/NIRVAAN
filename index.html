@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NIRVAAN - Digital Psychological Intervention</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header>
@@ -13,43 +14,41 @@
     <p>Your Mind Matters — Talk, Learn, Heal.</p>
   </header>
 
+  <!-- Intro Section -->
   <section class="intro">
     <p>
       NIRVAAN helps college students manage stress, anxiety, and emotional challenges 
       through guided AI chat, self-care resources, and counseling support.
     </p>
   </section>
+
   <!-- Controls -->
   <div class="controls">
     <button class="btn" id="toggleMode">🌙</button>
-    <button class="btn" id="loginBtn">Login / Register</button>
-  </div>   <!-- Login Modal -->
-  <div class="modal" id="loginModal" style="display:none;">
-    <div class="card">
-      <h2>Login / Register</h2>
-      <label>Email:</label>
-      <input type="email" id="email" placeholder="Enter your email" />
-      <label>Password:</label>
-      <input type="password" id="password" placeholder="Enter your password" />
-      <button class="btn" id="closeModal">Close</button>
-    </div>
+    <button class="btn" onclick="openPage('base.html')">Login / Register</button>
   </div>
+
+  <!-- Connect Options -->
+  <section class="connect-options">
+    <h2>Connect Options</h2>
+
+    <div class="option" onclick="openPage('chatbot.html')">🤖 Connect With Bot</div>
+    <div class="option" onclick="openPage('community.html')">🧑‍🤝‍🧑 Connect With People</div>
+  </section>
+
+  <!-- Features -->
   <section class="features">
     <div class="feature" onclick="openPage('calm_music.html')">🎵 Calm Music</div>
     <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">🧠 Stress Management</div>
     <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">🎨 Find Hobbies</div>
     <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">💤 Sleep Hygiene</div>
- <a href="resources.html" class="feature">📚 Articles & 🎥 Videos</a>
-
-    <div class="feature mood" onclick="openPage('mood_tracker.html')">
-     <a href="mood_tracker.html" class="feature">😊 Mood Tracker</a>
-
-    </div>
-    <a href="quiz.html" class="feature">🧠 Quiz Section </a>
-
+    <a href="resources.html" class="feature">📚 Articles & 🎥 Videos</a>
+    <a href="mood_tracker.html" class="feature">😊 Mood Tracker</a>
+    <a href="quiz.html" class="feature">🧠 Quiz Section</a>
     <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">🧘‍♀️ Meditation</div>
     <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">🤝 How to Seek Help</div>
   </section>
+
   <!-- Journal -->
   <section class="container reveal">
     <h2>📝 Personal Journal</h2>
@@ -61,7 +60,8 @@
       </div>
     </div>
   </section>
-  
+
+  <!-- Footer -->
   <footer>
     <p>Contact Us:</p>
     <ul>
@@ -70,7 +70,7 @@
       <li>paragpggupta@gmail.com</li>
       <li>khushalchuahan90@gmail.com</li>
     </ul>
-       <p class="privacy">🔒 We respect your privacy — your journal & mood data never leave your device.</p>
+    <p class="privacy">🔒 Your privacy matters — your journal & mood data never leave your device.</p>
   </footer>
 
   <script>
@@ -79,7 +79,7 @@
       window.location.href = url;
     }
 
-    // Typing effect for NIRVAAN
+    // Typing Effect
     const text = "NIRVAAN";
     const typingSpeed = 200;
     const eraseSpeed = 100;
@@ -90,6 +90,7 @@
 
     function typeEffect() {
       title.textContent = text.substring(0, i);
+
       if (!isDeleting && i < text.length) {
         i++;
         setTimeout(typeEffect, typingSpeed);
@@ -105,12 +106,20 @@
       }
     }
     typeEffect();
+
+    // Dark / Light Mode Toggle
+    const toggleBtn = document.getElementById("toggleMode");
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        toggleBtn.textContent = "☀️";
+      } else {
+        toggleBtn.textContent = "🌙";
+      }
+    });
   </script>
 
 </body>
 </html>
-
-
-
-
-
