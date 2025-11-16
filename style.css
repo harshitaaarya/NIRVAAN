@@ -4,7 +4,9 @@ body {
   background: linear-gradient(to right, #c2e9fb, #e0c3fc);
   color: #333;
   text-align: center;
+  transition: 0.3s;
 }
+
 .dark-mode {
   background: #1c1c1c;
   color: #e0e0e0;
@@ -22,24 +24,55 @@ header h1 {
 
 header p {
   font-size: 1.2em;
-  color: #2f4858;
 }
-#darkToggle {
+
+.controls {
+  margin-top: 20px;
+}
+
+.btn {
   background: #4facfe;
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  margin-top: 10px;
   cursor: pointer;
+  font-size: 1em;
 }
 
 .intro {
   max-width: 800px;
   margin: 20px auto;
-  font-size: 1.1em;
-  color: #3a3a3a;
   padding: 10px;
+  font-size: 1.1em;
+}
+
+/* Connect Boxes */
+.connect {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.connectBox {
+  width: 260px;
+  height: 100px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #004d61;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.connectBox:hover {
+  transform: scale(1.08);
 }
 
 .features {
@@ -74,11 +107,14 @@ header p {
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.mood .line {
-  font-size: 0.8em;
-  display: block;
-  margin-top: 10px;
-  color: #333;
+/* Journal */
+.journal textarea {
+  width: 90%;
+  height: 150px;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
 }
 
 footer {
@@ -87,27 +123,12 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 240px;
+  width: 260px;
   border-top-right-radius: 20px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
   text-align: left;
-  font-size: 0.9em;
 }
 
 footer ul {
   list-style: none;
   padding-left: 0;
-  margin: 0;
 }
-
-footer li {
-  margin-bottom: 5px;
-  color: #004d61;
-}
-
-body.dark {
-  background: #111;
-  color: #fff;
-}
-
-
