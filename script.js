@@ -1,8 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ---------- Typing Animation ----------
-  // CSS handles animation, text already in HTML
   const title = document.getElementById("nirvaan");
-  if (title) title.textContent = "NIRVAAN";
+  const text = "NIRVAAN";
+  let i = 0;
+  let isDeleting = false;
+  const speed = 200;      // typing speed
+  const eraseSpeed = 100; // deleting speed
+  const pause = 1200;     // pause before deleting
+
+  function typeNirvaan() {
+    if (!title) return;
+
+    if (!isDeleting) {
+      title.textContent = text.substring(0, i);
+      i++;
+      if (i > text.length) {
+        isDeleting = true;
+        setTimeout(typeNirvaan, pause);
+      } else {
+        setTimeout(typeNirvaan, speed);
+      }
+    } else {
+      title.textContent = text.substring(0, i);
+      i--;
+      if (i < 0) {
+        isDeleting = false;
+        setTimeout(typeNirvaan, speed);
+      } else {
+        setTimeout(typeNirvaan, eraseSpeed);
+      }
+    }
+  }
+
+  typeNirvaan();
 
   // ---------- Navigation ----------
   window.openPage = (url) => window.location.href = url;
