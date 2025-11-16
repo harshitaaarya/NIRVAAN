@@ -119,5 +119,9 @@ function logout() {
   alert("Logged out successfully 🔒");
   window.location.href = "login.html"; // redirect to login page
 }
+localStorage.setItem(
+  "nirvaanUser",
+  JSON.stringify({ firstName: firstName, email: email })
+);
 
 
