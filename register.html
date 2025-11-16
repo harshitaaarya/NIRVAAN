@@ -1,152 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register - NIRVAAN</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIRVAAN - Register & Login</title>
+<style>
+  body {
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(to bottom, #dfe8ff, #a3c2ff);
+    padding: 20px;
+    color: #333;
+  }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+  .welcome-box {
+    text-align: center;
+    margin-bottom: 30px;
+  }
 
-    body {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      color: #fff;
-    }
+  .welcome-box h1 {
+    font-size: 36px;
+    color: #5a62ff;
+    margin-bottom: 5px;
+  }
 
-    .welcome-box {
-      position: absolute;
-      top: 30px;
-      text-align: center;
-      animation: fadeDown 1.5s ease;
-    }
+  .welcome-box p {
+    font-size: 16px;
+    color: #333;
+    font-style: italic;
+  }
 
-    .welcome-box h1 {
-      font-size: 42px;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: #ffddaa;
-      text-shadow: 0 0 10px rgba(255,255,255,0.5);
-    }
+  .box {
+    width: 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px #0002;
+    margin: auto;
+  }
 
-    .welcome-box p {
-      margin-top: 5px;
-      font-size: 16px;
-      opacity: 0.9;
-      color: #ffe7c6;
-    }
+  .box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #5a62ff;
+  }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    outline: none;
+  }
 
-    .box {
-      width: 420px;
-      background: rgba(255,255,255,0.13);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      overflow-y: auto;
-      max-height: 85vh;
-      animation: fadeUp 1.5s ease;
-    }
+  textarea { height: 60px; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #5a62ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 
-    h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #ffe7c6;
-    }
+  .btn:hover { background: #4b52e0; }
 
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 8px;
-      background: rgba(0,0,0,0.2);
-      color: #fff;
-      outline: none;
-    }
+  #strength {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 
-    textarea { height: 60px; }
+  #preview {
+    display: none;
+    width: 120px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid #5a62ff;
+  }
 
-    label {
-      font-size: 14px;
-      margin-top: 10px;
-      display: block;
-      color: #ffd8ae;
-    }
-
-    .btn {
-      width: 100%;
-      background: #ffbd59;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-      color: #000;
-    }
-
-    .btn:hover { background: #ffcb7f; }
-
-    #preview {
-      display: none;
-      width: 120px;
-      margin-top: 10px;
-      border-radius: 10px;
-      border: 2px solid #ffbd59;
-    }
-
-    .link{
-      text-align: center;
-      margin-top: 12px;
-      color: #ffe7c6;
-    }
-
-    .link a{
-      color: #ffbd59;
-      font-weight: bold;
-    }
-
-    #strength{
-      font-size: 14px;
-      margin-top: -3px;
-      color: #ffd8ae;
-      text-align: right;
-    }
-  </style>
+  .link { text-align: center; margin-top: 12px; }
+  .link a { color: #5a62ff; font-weight: bold; }
+</style>
 </head>
-
 <body>
 
 <div class="welcome-box">
   <h1>Welcome to NIRVAAN</h1>
-  <p>One small step toward better mental health 💛</p>
+  <p>One small step toward your mental health 💛</p>
 </div>
 
 <div class="box">
   <h2>Create Account</h2>
-
   <input type="text" id="fname" placeholder="First Name">
   <input type="text" id="lname" placeholder="Last Name">
 
@@ -178,8 +125,9 @@
 
   <input type="password" id="cpassword" placeholder="Confirm Password">
 
-  <button id="otpBtn" class="btn">Send OTP</button>
+  <label><input type="checkbox" onclick="togglePass()"> Show Password</label>
 
+  <button id="otpBtn" class="btn">Send OTP</button>
   <div id="otpBox" style="display:none;">
     <input type="text" id="otpInput" placeholder="Enter OTP">
     <button class="btn" id="verifyOtpBtn">Verify OTP</button>
@@ -187,6 +135,75 @@
 
   <p class="link">Already Registered? <a href="login.html">Login</a></p>
 </div>
+
+<script>
+// ID Proof Preview
+document.getElementById('idProof').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  const preview = document.getElementById('preview');
+  if(file){
+    const reader = new FileReader();
+    reader.onload = () => { preview.src = reader.result; preview.style.display='block'; };
+    reader.readAsDataURL(file);
+  }
+});
+
+// Password Strength
+const passwordField = document.getElementById('password');
+const strengthText = document.getElementById('strength');
+passwordField.addEventListener('input',()=>{
+  const val = passwordField.value;
+  let strength = '';
+  if(val.length<4) strength='Weak ❌';
+  else if(val.length<7) strength='Medium ⚠️';
+  else strength='Strong ✅';
+  strengthText.innerText='Password Strength: '+strength;
+});
+
+// Show/Hide Password
+function togglePass(){
+  const pass = document.getElementById('password');
+  const cpass = document.getElementById('cpassword');
+  if(pass.type==='password'){ pass.type='text'; cpass.type='text'; }
+  else{ pass.type='password'; cpass.type='password'; }
+}
+
+// OTP + Registration
+let generatedOTP='';
+document.getElementById('otpBtn').onclick=()=>{
+  const pass = passwordField.value;
+  const cpass = document.getElementById('cpassword').value;
+  if(pass!==cpass){ alert('Passwords do not match ❌'); return; }
+  generatedOTP=Math.floor(100000 + Math.random()*900000).toString();
+  document.getElementById('otpBox').style.display='block';
+  alert('OTP Sent: '+generatedOTP);
+};
+
+document.getElementById('verifyOtpBtn').onclick=()=>{
+  const otpInput = document.getElementById('otpInput').value;
+  if(otpInput!==generatedOTP){ alert('Incorrect OTP ❌'); return; }
+  saveUser();
+  alert('OTP Verified! Account Created 🎉');
+  window.location.href='login.html';
+};
+
+function saveUser(){
+  const user={
+    fname: document.getElementById('fname').value,
+    lname: document.getElementById('lname').value,
+    dob: document.getElementById('dob').value,
+    paddress: document.getElementById('paddress').value,
+    caddress: document.getElementById('caddress').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    mother: document.getElementById('mother').value,
+    father: document.getElementById('father').value,
+    gender: document.getElementById('gender').value,
+    password: document.getElementById('password').value
+  };
+  localStorage.setItem('nirvaanUser', JSON.stringify(user));
+}
+</script>
 
 </body>
 </html>
