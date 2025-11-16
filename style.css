@@ -105,4 +105,9 @@ footer li {
   color: #004d61;
 }
 
+body.dark {
+  background: #111;
+  color: #fff;
+}
+
 
