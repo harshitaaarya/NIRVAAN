@@ -1,0 +1,71 @@
+```html
+<select name="gender"><option>Male</option><option>Female</option><option>Other</option></select>
+<input name="password" type="password" placeholder="Password" />
+<input name="confirm_password" type="password" placeholder="Confirm Password" />
+
+
+<div class="otp-row">
+<button id="sendOtp">Send OTP</button>
+<input id="otp" name="otp" placeholder="Enter OTP" style="display:none;" />
+</div>
+
+
+<button id="regSubmit" type="button" style="display:none;">Register</button>
+<p class="msg" id="regMsg"></p>
+</form>
+</div>
+</div>
+
+
+<script>
+$(function(){
+$('#showLogin').click(function(){ $('#loginBox').show(); $('#registerBox').hide();});
+$('#showRegister').click(function(){ $('#loginBox').hide(); $('#registerBox').show();});
+
+
+$('#sendOtp').click(function(e){
+e.preventDefault();
+var phone = $('input[name=phone]').val();
+var email = $('input[name=email]').val();
+$.post('{% url "send_otp" %}', {phone:phone,email:email,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()}, function(resp){
+if(resp.status=='ok'){
+alert('OTP sent (for demo: '+resp.otp+')');
+$('#otp').show();
+$('#regSubmit').show();
+} else alert('OTP error');
+});
+});
+
+
+$('#regSubmit').click(function(){
+var fd = new FormData($('#regForm')[0]);
+fd.append('otp',$('#otp').val());
+$.ajax({
+url: '{% url "register" %}',
+type: 'POST',
+data: fd,
+processData: false,
+contentType: false,
+success: function(resp){
+if(resp.status=='ok'){ alert('Registered! Please login.'); $('#showLogin').click(); }
+else { $('#regMsg').text(JSON.stringify(resp)); }
+}
+});
+});
+
+
+$('#loginBtn').click(function(){
+var id = $('#identity').val(); var pass = $('#lpassword').val();
+$.post('{% url "login" %}', {identity:id,password:pass,csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()}, function(resp){
+if(resp.status=='ok'){ window.location.href = '/'; } else { $('#loginMsg').text(resp.message); }
+});
+});
+});
+</script>
+
+
+{% endblock %}
+```
+
+
+---
