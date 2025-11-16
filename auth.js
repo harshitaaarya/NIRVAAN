@@ -114,3 +114,10 @@ function loginUser() {
     alert("Incorrect Login Details ❌");
   }
 }
+function logout() {
+  localStorage.removeItem("nirvaanUser"); // remove user data
+  alert("Logged out successfully 🔒");
+  window.location.href = "login.html"; // redirect to login page
+}
+
+
