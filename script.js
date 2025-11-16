@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const text = "NIRVAAN";
   let i = 0;
   let isDeleting = false;
-  const speed = 200;      // typing speed
-  const eraseSpeed = 100; // deleting speed
-  const pause = 1200;     // pause before deleting
+  const speed = 200;
+  const eraseSpeed = 100;
+  const pause = 1200;
 
   function typeNirvaan() {
     if (!title) return;
