@@ -1,7 +1,6 @@
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #8EC5FC, #E0C3FC);
+  font-family: Poppins, sans-serif;
+  background: #dfe8ff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,50 +8,42 @@ body {
 }
 
 .box {
-  width: 360px;
-  background: rgba(255,255,255,0.9);
+  width: 330px;
+  background: white;
   padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #0002;
 }
 
-.box input, select {
-  width: 90%;
+.box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, select, textarea {
+  width: 100%;
   padding: 10px;
   margin: 8px 0;
+  border-radius: 10px;
   border: 1px solid #aaa;
-  border-radius: 8px;
-}
-
-.input-group {
-  display: flex;
-  gap: 10px;
 }
 
 .btn {
-  width: 95%;
+  width: 100%;
   padding: 10px;
-  background: #4c57ff;
+  margin-top: 10px;
+  background: #5a62ff;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-.upload-label {
-  font-size: 0.9em;
-  text-align: left;
-  display: block;
-  margin-top: 10px;
+.btn:hover {
+  background: #4b52e0;
 }
 
-.link {
-  margin-top: 12px;
-}
-
-#strengthText {
+#strength {
   font-size: 14px;
-  margin: 5px 0;
-  font-weight: bold;
+  margin-bottom: 5px;
 }
