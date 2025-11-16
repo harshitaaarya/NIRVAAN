@@ -1,53 +1,168 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // ---------- Typing Effect ----------
-  const title = document.getElementById("nirvaan");
-  if (title) title.textContent = "NIRVAAN"; // CSS typing handles animation
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #c2e9fb, #e0c3fc);
+  color: #333;
+  text-align: center;
+  transition: 0.3s;
+}
 
-  // ---------- Navigation ----------
-  window.openPage = (url) => window.location.href = url;
+.dark-mode {
+  background: #1c1c1c;
+  color: #e0e0e0;
+}
 
-  // ---------- Dark/Light mode ----------
-  const toggle = document.getElementById("toggleMode");
-  if (toggle) toggle.addEventListener("click", () => document.body.classList.toggle("dark-mode"));
+/* HEADER */
+header {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center;
+}
 
-  // ---------- User Login ----------
-  const user = JSON.parse(localStorage.getItem("nirvaanUser"));
-  const loginBtn = document.getElementById("loginBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const helloUser = document.getElementById("helloUser");
+#nirvaan {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5a62ff;
+  letter-spacing: 2px;
+  border-right: 3px solid #5a62ff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(8) forwards, blink 0.75s step-end infinite alternate;
+}
 
-  function checkLoginStatus() {
-    if (!user) {
-      if (loginBtn) loginBtn.style.display = "inline-block";
-      if (logoutBtn) logoutBtn.style.display = "none";
-      if (helloUser) helloUser.style.display = "none";
-    } else {
-      if (loginBtn) loginBtn.style.display = "none";
-      if (logoutBtn) logoutBtn.style.display = "inline-block";
-      if (helloUser) {
-        helloUser.style.display = "inline-block";
-        helloUser.innerText = `Hello, ${user.fname} 👋`;
-      }
-    }
-  }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 8ch; }
+}
 
-  window.logout = () => {
-    localStorage.removeItem("nirvaanUser");
-    alert("Logged out successfully!");
-    window.location.reload();
-  };
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
-  checkLoginStatus();
+header p {
+  font-size: 1.2em;
+  margin-top: 5px;
+}
 
-  // ---------- Journal Save/Load ----------
-  const journalText = document.getElementById("journalText");
-  const saveJournal = document.getElementById("saveJournal");
-  if (journalText && saveJournal) {
-    const journalKey = user ? `journal_${user.email}` : 'nirvaan_journal';
-    journalText.value = localStorage.getItem(journalKey) || "";
-    saveJournal.addEventListener("click", () => {
-      localStorage.setItem(journalKey, journalText.value);
-      alert("Saved in browser!");
-    });
-  }
-});
+/* BUTTONS */
+.btn {
+  background: #4facfe;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* Connect Boxes */
+.connectBox {
+  width: 260px;
+  height: 100px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #004d61;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.connectBox:hover {
+  transform: scale(1.08);
+}
+
+/* Features */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px auto;
+  max-width: 1100px;
+}
+
+.feature {
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 220px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #004d61;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.feature:hover {
+  transform: scale(1.08);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Journal */
+.journal textarea {
+  width: 90%;
+  height: 150px;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+}
+
+/* Footer */
+footer {
+  background: rgba(255,255,255,0.4);
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  border-top-right-radius: 20px;
+  text-align: left;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.logoutBtn {
+  background: #ff4d4d;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logoutBtn:hover {
+  background: #d93636;
+}
+
+.user-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.helloUser {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #004d61;
+}
