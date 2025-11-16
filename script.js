@@ -107,4 +107,15 @@ function logout() {
 
 // Run when page loads
 checkLoginStatus();
+<script>
+  let user = JSON.parse(localStorage.getItem("nirvaanUser"));
+
+  if (user) {
+    document.getElementById("userName").innerText = user.fname + " " + user.lname;
+    document.getElementById("userEmail").innerText = user.email;
+    document.getElementById("userPhone").innerText = user.phone;
+  }
+</script>
+
+
 
