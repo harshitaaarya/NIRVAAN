@@ -130,5 +130,14 @@ function toggleLoginPass() {
     pass.type = "password";
   }
 }
+function toggleLoginPass() {
+  let pass = document.getElementById("loginPass");
+  if (pass.type === "password") {
+    pass.type = "text";
+  } else {
+    pass.type = "password";
+  }
+}
+
 
 // ❗ REMOVED THE WRONG LINE THAT WAS BREAKING EVERYTHING
