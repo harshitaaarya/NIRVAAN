@@ -4,118 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NIRVAAN - Digital Psychological Intervention</title>
-  <link rel="stylesheet" href="auth.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- YOUR EXISTING NIRVAAN HEADER -->
   <header>
-    <h1 id="nirvaan">NIRVAAN</h1>
+    <h1 id="nirvaan"></h1>
     <p>Your Mind Matters — Talk, Learn, Heal.</p>
   </header>
 
-  <!-- Login/Register Buttons -->
+  <section class="intro">
+    <p>
+      NIRVAAN helps college students manage stress, anxiety, and emotional challenges
+      through guided AI chat, self-care resources, and counseling support.
+    </p>
+  </section>
+
+  <!-- Controls -->
   <div class="controls">
-    <button class="btn" onclick="openLogin()">Login</button>
-    <button class="btn" onclick="openRegister()">Register</button>
+      <button class="btn" id="toggleMode">🌙</button>
+      <button class="btn" onclick="openPage('base.html')">Login / Register</button>
   </div>
 
+  <!-- Bot + People -->
+ 
+      
+  <!-- Features -->
+  <section class="features">
 
+    <div class="feature" onclick="openPage('calm_music.html')">🎵 Calm Music</div>
 
-  <!-- LOGIN POPUP -->
-  <div id="loginBox" class="popup">
-    <div class="popup-content">
-      <h2>Login</h2>
-
-      <input type="text" id="loginID" placeholder="Email or Phone">
-
-      <div class="pass-wrapper">
-        <input type="password" id="loginPass" placeholder="Password">
-        <span onclick="togglePassword('loginPass', this)">👁️</span>
+    <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">
+        🧠 Stress Management
+    </div>
+    <div class="feature connectBox" onclick="openPage('chatbot.html')">
+          🤖 Connect With Bot
       </div>
 
-      <button class="btn" onclick="loginUser()">Login</button>
-
-      <p class="small">New user? <span onclick="switchToRegister()">Register</span></p>
-      <button class="close" onclick="closeAll()">✖</button>
+    <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">
+        🎨 Find Hobbies
     </div>
-  </div>
 
+    <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">
+        💤 Sleep Hygiene
+    </div>
 
+    <a href="resources.html" class="feature">📚 Articles & 🎥 Videos</a>
 
-  <!-- REGISTER POPUP -->
-  <div id="registerBox" class="popup">
-    <div class="popup-content">
+    <a href="mood_tracker.html" class="feature">😊 Mood Tracker</a>
 
-      <h2>Create Account</h2>
+    <a href="quiz.html" class="feature">🧠 Quiz Section</a>
 
-      <input type="text" id="fname" placeholder="First Name">
-      <input type="text" id="lname" placeholder="Last Name">
+    <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">
+        🧘‍♀ Meditation
+    </div>
 
-      <label>Date of Birth</label>
-      <input type="date" id="dob">
-
-      <input type="text" id="permanent" placeholder="Permanent Address">
-      <input type="text" id="correspond" placeholder="Corresponding Address">
-
-      <label>ID Proof</label>
-      <input type="file" id="idproof" onchange="previewID()">
-
-      <img id="idPreview" style="width:100px; display:none; margin-top:10px;">
-
-      <input type="text" id="phone" placeholder="Phone Number">
-      <input type="email" id="email" placeholder="Email">
-
-      <input type="text" id="father" placeholder="Father's Name">
-      <input type="text" id="mother" placeholder="Mother's Name">
-
-      <select id="gender">
-        <option value="">Select Gender</option>
-        <option>Female</option>
-        <option>Male</option>
-        <option>Other</option>
-      </select>
-
-      <div class="pass-wrapper">
-        <input type="password" id="password" placeholder="Password" oninput="passwordStrength()">
-        <span onclick="togglePassword('password', this)">👁️</span>
+    <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">
+        🤝 How to Seek Help
+    </div>
+          <div class="feature connectBox" onclick="openPage('community.html')">
+          👥 Connect With People
       </div>
+  </section>
 
-      <div id="strength"></div>
+  </section>
 
-      <input type="password" id="confirmPassword" placeholder="Confirm Password">
+  <!-- Journal -->
+  <section class="container reveal">
+    <h2>📝 Personal Journal</h2>
 
-      <button class="btn" onclick="sendOTP()">Send OTP</button>
+    <div class="journal">
+      <textarea id="journalText" placeholder="Write your thoughts here..."></textarea>
 
-      <p class="small">Already Registered? <span onclick="switchToLogin()">Login</span></p>
-
-      <button class="close" onclick="closeAll()">✖</button>
+      <div class="row">
+        <button class="btn" id="saveJournal">Save</button>
+        <p class="small">Your entries are stored only in your browser.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
+  <footer>
+    <p>Contact Us:</p>
+    <ul>
+      <li>harshitaaaarya@gmail.com</li>
+      <li>kartikatyagi9@gmail.com</li>
+      <li>paragpggupta@gmail.com</li>
+      <li>khushalchuahan90@gmail.com</li>
+    </ul>
+    <p class="privacy">🔒 Your journal & mood data never leave your device.</p>
+  </footer>
 
+  <script src="script.js"></script>
 
-  <!-- OTP POPUP -->
-  <div id="otpBox" class="popup">
-    <div class="popup-content small-popup">
-
-      <h3>Enter OTP</h3>
-
-      <input type="number" id="otpInput" placeholder="4-digit OTP">
-
-      <button class="btn" onclick="verifyOTP()">Verify OTP</button>
-      <button class="btn small" onclick="resendOTP()">Resend OTP</button>
-
-      <button class="close" onclick="closeAll()">✖</button>
-
-    </div>
-  </div>
-
-
-
-  <!-- MAIN SCRIPT FILE -->
-  <script src="auth.js"></script>
 </body>
 </html>
