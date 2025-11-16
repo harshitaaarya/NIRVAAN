@@ -6,21 +6,10 @@
   <title>NIRVAAN - Digital Psychological Intervention</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<script>
-  let user = JSON.parse(localStorage.getItem("nirvaanUser"));
-
-  if (user) {
-    document.getElementById("userName").innerText = user.fname + " " + user.lname;
-    document.getElementById("userEmail").innerText = user.email;
-    document.getElementById("userPhone").innerText = user.phone;
-  }
-</script>
-
 <body>
 
   <!-- TOP RIGHT USER CONTROLS -->
   <div class="user-controls">
-
     <span id="helloUser" class="helloUser"></span>
 
     <button id="loginBtn" class="btn" onclick="window.location.href='login.html'">
@@ -30,7 +19,6 @@
     <button id="logoutBtn" class="logoutBtn" onclick="logout()" style="display:none;">
       Logout
     </button>
-
   </div>
 
   <!-- DARK MODE BUTTON -->
@@ -41,7 +29,7 @@
   <!-- HEADER -->
   <header>
     <h1 id="nirvaan"></h1>
-    <p>Your Mind Matters — Talk, Learn, Heal.</p>
+    <p>One small step toward better mental health 💛</p>
   </header>
 
   <!-- INTRO -->
@@ -55,56 +43,26 @@
   <!-- FEATURES -->
   <section class="features">
 
-    <div class="feature" onclick="openPage('calm_music.html')">
-      🎵 Calm Music
-    </div>
-
-    <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">
-      🧠 Stress Management
-    </div>
-
-    <div class="feature connectBox" onclick="openPage('chatbot.html')">
-      🤖 Connect With Bot
-    </div>
-
-    <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">
-      🎨 Find Hobbies
-    </div>
-
-    <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">
-      💤 Sleep Hygiene
-    </div>
-
+    <div class="feature" onclick="openPage('calm_music.html')">🎵 Calm Music</div>
+    <div class="feature" onclick="window.open('https://www.youtube.com/watch?v=1WIHlVZcrzs','_blank')">🧠 Stress Management</div>
+    <div class="feature connectBox" onclick="openPage('chatbot.html')">🤖 Connect With Bot</div>
+    <div class="feature" onclick="window.open('https://www.wikihow.com/Hobby-Quiz','_blank')">🎨 Find Hobbies</div>
+    <div class="feature" onclick="window.open('https://www.health.harvard.edu/staying-healthy/sleep-hygiene-simple-practices-for-better-rest','_blank')">💤 Sleep Hygiene</div>
     <a href="resources.html" class="feature">📚 Articles & 🎥 Videos</a>
-
     <a href="mood_tracker.html" class="feature">😊 Mood Tracker</a>
-
     <a href="quiz.html" class="feature">🧠 Quiz Section</a>
-
-    <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">
-      🧘‍♀ Meditation
-    </div>
-
-    <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">
-      🤝 How to Seek Help
-    </div>
-
-    <div class="feature connectBox" onclick="openPage('community.html')">
-      👥 Connect With People
-    </div>
+    <div class="feature" onclick="window.open('https://www.mayoclinic.org/tests-procedures/meditation/in-depth/meditation/art-20045858','_blank')">🧘‍♀ Meditation</div>
+    <div class="feature" onclick="window.open('https://wirhelfen.eu/en/a-go-to-guide-on-how-to-deal-with-depression-and-sadness/','_blank')">🤝 How to Seek Help</div>
+    <div class="feature connectBox" onclick="openPage('community.html')">👥 Connect With People</div>
 
   </section>
   <br/>
- 
-
 
   <!-- JOURNAL -->
   <section class="container reveal">
     <h2>📝 Personal Journal</h2>
-
     <div class="journal">
       <textarea id="journalText" placeholder="Write your thoughts here..."></textarea>
-
       <div class="row">
         <button class="btn" id="saveJournal">Save</button>
         <p class="small">Your entries are stored only in your browser.</p>
@@ -125,9 +83,5 @@
   </footer>
 
   <script src="script.js"></script>
-
 </body>
 </html>
-
-
-
