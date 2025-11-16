@@ -1,27 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ---------- Typing Effect ----------
-  const text = "NIRVAAN";
-  let i = 0;
-  let isDeleting = false;
+  // ---------- Typing Animation ----------
+  // CSS handles animation, text already in HTML
   const title = document.getElementById("nirvaan");
-
-  function typing() {
-    if (!title) return;
-
-    if (!isDeleting && i <= text.length) {
-      title.textContent = text.substring(0, i);
-      i++;
-      setTimeout(typing, 200);
-    } else if (isDeleting && i > 0) {
-      title.textContent = text.substring(0, i);
-      i--;
-      setTimeout(typing, 100);
-    } else {
-      isDeleting = !isDeleting;
-      setTimeout(typing, 1200);
-    }
-  }
-  typing();
+  if (title) title.textContent = "NIRVAAN";
 
   // ---------- Navigation ----------
   window.openPage = (url) => window.location.href = url;
