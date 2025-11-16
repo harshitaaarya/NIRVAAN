@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Selection</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Welcome to NIRVAAN</h2>
+    <p>Select an option</p>
+
+    <button class="btn" onclick="openPage('login.html')">Already a User? Login</button>
+    <button class="btn" onclick="openPage('register.html')">New User? Register</button>
+  </div>
+
+  <script>
+    function openPage(url) {
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>
