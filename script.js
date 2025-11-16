@@ -107,6 +107,8 @@ function logout() {
 
 // Run when page loads
 checkLoginStatus();
+window.location.href = "index.html";
+
 <script>
   let user = JSON.parse(localStorage.getItem("nirvaanUser"));
 
@@ -116,6 +118,7 @@ checkLoginStatus();
     document.getElementById("userPhone").innerText = user.phone;
   }
 </script>
+
 
 
 
