@@ -8,13 +8,27 @@
 </head>
 
 <body>
-
   <div class="box">
-    <h2>Create Your Account</h2>
+    <h2>Create Account</h2>
 
-    <input type="text" id="fname" placeholder="First Name" required>
-    <input type="text" id="lname" placeholder="Last Name" required>
+    <div class="input-group">
+      <input type="text" id="fname" placeholder="First Name" required>
+      <input type="text" id="lname" placeholder="Last Name" required>
+    </div>
+
     <input type="date" id="dob" required>
+    <input type="text" id="paddress" placeholder="Permanent Address" required>
+    <input type="text" id="caddress" placeholder="Corresponding Address" required>
+
+    <label class="upload-label">Upload ID Proof</label>
+    <input type="file" id="idproof" accept="image/*">
+    <img id="preview" style="width:120px; margin-top:10px; display:none; border-radius:8px;">
+
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <input type="text" id="father" placeholder="Father's Name" required>
+    <input type="text" id="mother" placeholder="Mother's Name" required>
 
     <select id="gender">
       <option value="">Select Gender</option>
@@ -23,32 +37,19 @@
       <option>Other</option>
     </select>
 
-    <input type="text" id="mother" placeholder="Mother’s Name" required>
-    <input type="text" id="father" placeholder="Father’s Name" required>
+    <input type="password" id="password" placeholder="Create Password" oninput="checkStrength()" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
 
-    <textarea id="perm" placeholder="Permanent Address"></textarea>
-    <textarea id="corr" placeholder="Corresponding Address"></textarea>
+    <p id="strengthText"></p>
 
-    <input type="text" id="phone" placeholder="Phone Number" required>
-    <input type="email" id="email" placeholder="Email ID" required>
+    <label><input type="checkbox" onclick="togglePass()"> Show Password</label>
 
-    <label>ID Proof:</label>
-    <input type="file" id="idproof" accept="image/*">
+    <button class="btn" onclick="registerUser()">Register</button>
 
-    <input type="password" id="pass" placeholder="Create Password">
-    <input type="password" id="confpass" placeholder="Confirm Password">
-
-    <button class="btn" onclick="sendOTP()">Send OTP</button>
-
-    <div id="otpBox" style="display:none;">
-      <input type="text" id="otp" placeholder="Enter OTP">
-      <button class="btn" onclick="registerUser()">Complete Registration</button>
-    </div>
-
-    <p class="link">Already have an account? <a href="login.html">Login</a></p>
+    <p class="link">Already have account? <a href="login.html">Login</a></p>
   </div>
 
   <script src="auth.js"></script>
-
 </body>
 </html>
+
